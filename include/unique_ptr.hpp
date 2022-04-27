@@ -2,14 +2,12 @@ template <typename T>
 UniquePtr<T>::UniquePtr(T* _N)
     : _p { _N }
 {
-    std::cout << "UniquePtr constructor " << std::endl;
 }
 
 template <typename T>
 UniquePtr<T>::UniquePtr()
     : _p { nullptr }
 {
-    std::cout << "UniquePtr default constructor " << std::endl;
 }
 
 template <typename T>
@@ -21,7 +19,6 @@ UniquePtr<T>::UniquePtr(const UniquePtr<T>&)
 template <typename T>
 UniquePtr<T>::~UniquePtr()
 {
-    std::cout << "UniquePtr Destructor " << std::endl;
     delete _p;
     _p = nullptr;
 }
@@ -29,14 +26,12 @@ UniquePtr<T>::~UniquePtr()
 template <typename T>
 T* UniquePtr<T>::get() const
 {
-    std::cout << "get method " << std::endl;
     return _p;
 }
 
 template <typename T>
 T* UniquePtr<T>::release()
 {
-    std::cout << "release method " << std::endl;
     T* ptr { new T { *_p } };
     delete _p;
     _p = nullptr;
@@ -46,7 +41,6 @@ T* UniquePtr<T>::release()
 template <typename T>
 void UniquePtr<T>::reset()
 {
-    std::cout << "reset_1 method " << std::endl;
     delete _p;
     _p = nullptr;
 }
@@ -54,7 +48,6 @@ void UniquePtr<T>::reset()
 template <typename T>
 void UniquePtr<T>::reset(T* _N)
 {
-    std::cout << "reset_2 method " << std::endl;
     delete _p;
     _p = _N;
 }
@@ -62,7 +55,6 @@ void UniquePtr<T>::reset(T* _N)
 template <typename A>
 A* make_unique(A _N)
 {
-    std::cout << "make_unique method " << std::endl;
     A* ptr;
     ptr = new A { _N };
     return ptr;

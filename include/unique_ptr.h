@@ -1,19 +1,25 @@
 #ifndef UNIQUE_PTR
 #define UNIQUE_PTR
 #include <iostream>
+
 template <typename T>
 class UniquePtr {
 public:
+    // Constructors & Destructor
     UniquePtr(T*); // Constructor
     UniquePtr(const UniquePtr&); // Copy Constructor
     UniquePtr(); // Default Constructor
     ~UniquePtr(); // Destructor
+
+    // Methods
     T* get() const;
     T* release();
     void reset();
     void reset(T*);
     template <typename A>
     friend A* make_unique(A);
+
+    // Operators
     UniquePtr& operator=(const UniquePtr<T>&);
     T operator*();
     T* operator->();
@@ -22,9 +28,6 @@ public:
 private:
     T* _p;
 };
-
-// template <typename T>
-// T* make_unique(T);
 
 #include "unique_ptr.hpp"
 #endif // UNIQUE_PTR

@@ -1,6 +1,7 @@
 #ifndef SHARED_PTR
 #define SHARED_PTR
 #include <iostream>
+
 template <typename T>
 class SharedPtr {
 public:
