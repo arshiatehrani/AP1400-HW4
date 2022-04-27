@@ -8,7 +8,7 @@ public:
     UniquePtr(const UniquePtr&); // Copy Constructor
     UniquePtr(); // Default Constructor
     ~UniquePtr(); // Destructor
-    T* get();
+    T* get() const;
     T* release();
     void reset();
     void reset(T*);

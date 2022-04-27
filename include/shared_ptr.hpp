@@ -32,7 +32,7 @@ SharedPtr<T>::~SharedPtr()
 }
 
 template <typename T>
-T* SharedPtr<T>::get()
+T* SharedPtr<T>::get() const
 {
     std::cout << "get method " << std::endl;
     return _p;
@@ -74,6 +74,8 @@ size_t SharedPtr<T>::use_count()
 template <typename T>
 SharedPtr<T>& SharedPtr<T>::operator=(const SharedPtr<T>& ptr)
 {
+    if (_p == ptr.get())
+        return *this;
     _p = ptr.get();
     return *this;
 }
@@ -88,4 +90,13 @@ template <typename T>
 T* SharedPtr<T>::operator->()
 {
     return get();
+}
+
+template <typename T>
+SharedPtr<T>::operator bool()
+{
+    if (this->get() != nullptr)
+        return true;
+    else
+        return false;
 }

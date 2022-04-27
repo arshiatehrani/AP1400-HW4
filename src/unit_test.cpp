@@ -203,23 +203,25 @@ TEST(HW4Test, TEST19)
     EXPECT_EQ(*ptr, "nice job!");
     EXPECT_EQ(ptr.use_count(), 1);
 }
-/*
 
-TEST(HW4Test, TEST20) {
-    SharedPtr<double> ptr{new double{1.567}};
+TEST(HW4Test, TEST20)
+{
+    SharedPtr<double> ptr { new double { 1.567 } };
     EXPECT_DOUBLE_EQ(*ptr, 1.567);
-    if(ptr)
+    if (ptr)
         ptr.reset();
     EXPECT_FALSE(ptr);
 }
 
-TEST(HW4Test, TEST21) {
-    SharedPtr<double> ptr1{new double{1.567}};
-    SharedPtr<double> ptr2{new double{5.1234}};
+TEST(HW4Test, TEST21)
+{
+    SharedPtr<double> ptr1 { new double { 1.567 } };
+    SharedPtr<double> ptr2 { new double { 5.1234 } };
     ptr1 = ptr1;
     ptr2 = ptr1;
     EXPECT_DOUBLE_EQ(*ptr2, 1.567);
     EXPECT_EQ(ptr1.use_count(), 2);
     EXPECT_EQ(ptr2.use_count(), 2);
 }
-*/
+/*
+ */

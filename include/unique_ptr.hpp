@@ -27,7 +27,7 @@ UniquePtr<T>::~UniquePtr()
 }
 
 template <typename T>
-T* UniquePtr<T>::get()
+T* UniquePtr<T>::get() const
 {
     std::cout << "get method " << std::endl;
     return _p;

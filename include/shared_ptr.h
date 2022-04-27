@@ -8,7 +8,7 @@ public:
     SharedPtr(const SharedPtr&); // Copy Constructor
     SharedPtr(); // Default Constructor
     ~SharedPtr(); // Destructor
-    T* get();
+    T* get() const;
     void reset();
     void reset(T*);
     template <typename A>
@@ -17,6 +17,7 @@ public:
     SharedPtr& operator=(const SharedPtr<T>&);
     T operator*();
     T* operator->();
+    operator bool();
 
 private:
     T* _p;
