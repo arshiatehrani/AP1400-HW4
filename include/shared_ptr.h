@@ -11,6 +11,7 @@ public:
     T* get();
     template <typename A>
     friend A* make_shared(A);
+    T operator*();
 
 private:
     T* _p;

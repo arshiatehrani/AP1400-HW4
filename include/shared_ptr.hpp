@@ -42,3 +42,9 @@ A* make_shared(A _N)
     ptr = new A { _N };
     return ptr;
 }
+
+template <typename T>
+T SharedPtr<T>::operator*()
+{
+    return *get();
+}
