@@ -119,10 +119,10 @@ TEST(HW4Test, TEST12)
     EXPECT_EQ(ptr2.get(), nullptr);
 }
 
-/*
-TEST(HW4Test, TEST13) {
-    SharedPtr<int> ptr1{make_shared<int>(10)};
-    SharedPtr<int> ptr2{ptr1};
+TEST(HW4Test, TEST13)
+{
+    SharedPtr<int> ptr1 { make_shared<int>(10) };
+    SharedPtr<int> ptr2 { ptr1 };
     EXPECT_EQ(*ptr1, 10);
     EXPECT_EQ(*ptr2, 10);
     EXPECT_EQ(ptr1.get(), ptr2.get());
@@ -130,10 +130,11 @@ TEST(HW4Test, TEST13) {
     EXPECT_EQ(ptr2.use_count(), 2);
 }
 
-TEST(HW4Test, TEST14) {
-    SharedPtr<std::string> ptr1{make_shared<std::string>("hello world!")};
-    SharedPtr<std::string> ptr2{ptr1};
-    SharedPtr<std::string> ptr3{ptr1};
+TEST(HW4Test, TEST14)
+{
+    SharedPtr<std::string> ptr1 { make_shared<std::string>("hello world!") };
+    SharedPtr<std::string> ptr2 { ptr1 };
+    SharedPtr<std::string> ptr3 { ptr1 };
     EXPECT_EQ(*ptr1, "hello world!");
     EXPECT_EQ(*ptr1, "hello world!");
     EXPECT_EQ(*ptr2, "hello world!");
@@ -144,16 +145,17 @@ TEST(HW4Test, TEST14) {
     EXPECT_EQ(ptr3.use_count(), 3);
 }
 
-TEST(HW4Test, TEST15) {
-    SharedPtr<std::string> ptr1{make_shared<std::string>("hello world!")};
+TEST(HW4Test, TEST15)
+{
+    SharedPtr<std::string> ptr1 { make_shared<std::string>("hello world!") };
     {
         {
-            SharedPtr<std::string> ptr2{ptr1};
+            SharedPtr<std::string> ptr2 { ptr1 };
             EXPECT_EQ(ptr1.use_count(), 2);
             EXPECT_EQ(ptr2.use_count(), 2);
         }
         EXPECT_EQ(ptr1.use_count(), 1);
-        SharedPtr<std::string> ptr3{ptr1};
+        SharedPtr<std::string> ptr3 { ptr1 };
         EXPECT_EQ(ptr1.use_count(), 2);
         EXPECT_EQ(ptr3.use_count(), 2);
     }
@@ -163,40 +165,45 @@ TEST(HW4Test, TEST15) {
     EXPECT_EQ(ptr1.get(), nullptr);
 }
 
-TEST(HW4Test, TEST16) {
-    SharedPtr<int> ptr1{new int{10}};
+TEST(HW4Test, TEST16)
+{
+    SharedPtr<int> ptr1 { new int { 10 } };
     EXPECT_EQ(*ptr1, 10);
 
-    SharedPtr<std::string> ptr2{new std::string{"hello world!"}};
+    SharedPtr<std::string> ptr2 { new std::string { "hello world!" } };
     EXPECT_EQ(*ptr2, "hello world!");
 
-    SharedPtr<std::vector<int>> ptr3{new std::vector<int>{1, 2, 3, 4, 5}};
+    SharedPtr<std::vector<int>> ptr3 { new std::vector<int> { 1, 2, 3, 4, 5 } };
     EXPECT_EQ((*ptr3)[1], 2);
 }
 
-TEST(HW4Test, TEST17) {
-    SharedPtr<std::string> ptr1{new std::string{"hello world!"}};
+TEST(HW4Test, TEST17)
+{
+    SharedPtr<std::string> ptr1 { new std::string { "hello world!" } };
     EXPECT_EQ(ptr1->length(), 12);
 
-    SharedPtr<std::vector<int>> ptr3{new std::vector<int>{1, 2, 3, 4, 5}};
+    SharedPtr<std::vector<int>> ptr3 { new std::vector<int> { 1, 2, 3, 4, 5 } };
     EXPECT_FALSE(ptr3->empty());
 }
 
-TEST(HW4Test, TEST18) {
-    SharedPtr<std::string> ptr{new std::string{"hello world!"}};
+TEST(HW4Test, TEST18)
+{
+    SharedPtr<std::string> ptr { new std::string { "hello world!" } };
     EXPECT_EQ(ptr->length(), 12);
     ptr.reset();
     EXPECT_EQ(ptr.get(), nullptr);
     EXPECT_EQ(ptr.use_count(), 0);
 }
 
-TEST(HW4Test, TEST19) {
-    SharedPtr<std::string> ptr{new std::string{"hello world!"}};
+TEST(HW4Test, TEST19)
+{
+    SharedPtr<std::string> ptr { new std::string { "hello world!" } };
     EXPECT_EQ(ptr->length(), 12);
-    ptr.reset(new std::string{"nice job!"});
+    ptr.reset(new std::string { "nice job!" });
     EXPECT_EQ(*ptr, "nice job!");
     EXPECT_EQ(ptr.use_count(), 1);
 }
+/*
 
 TEST(HW4Test, TEST20) {
     SharedPtr<double> ptr{new double{1.567}};

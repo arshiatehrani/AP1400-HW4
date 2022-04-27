@@ -9,13 +9,18 @@ public:
     SharedPtr(); // Default Constructor
     ~SharedPtr(); // Destructor
     T* get();
+    void reset();
+    void reset(T*);
     template <typename A>
     friend A* make_shared(A);
+    size_t use_count();
     SharedPtr& operator=(const SharedPtr<T>&);
     T operator*();
+    T* operator->();
 
 private:
     T* _p;
+    static inline size_t ptr_count {};
 };
 
 #include "shared_ptr.hpp"
