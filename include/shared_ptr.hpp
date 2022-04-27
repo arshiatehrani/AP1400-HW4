@@ -44,6 +44,13 @@ A* make_shared(A _N)
 }
 
 template <typename T>
+SharedPtr<T>& SharedPtr<T>::operator=(const SharedPtr<T>& ptr)
+{
+    _p = ptr.get();
+    return *this;
+}
+
+template <typename T>
 T SharedPtr<T>::operator*()
 {
     return *get();

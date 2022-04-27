@@ -11,6 +11,7 @@ public:
     T* get();
     template <typename A>
     friend A* make_shared(A);
+    SharedPtr& operator=(const SharedPtr<T>&);
     T operator*();
 
 private:
