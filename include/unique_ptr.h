@@ -7,7 +7,7 @@ class UniquePtr {
 public:
     // Constructors & Destructor
     UniquePtr(T*); // Constructor
-    UniquePtr(const UniquePtr&); // Copy Constructor
+    UniquePtr(const UniquePtr&) = delete; // Copy Constructor
     UniquePtr(); // Default Constructor
     ~UniquePtr(); // Destructor
 
@@ -20,7 +20,7 @@ public:
     friend A* make_unique(A);
 
     // Operators
-    UniquePtr& operator=(const UniquePtr<T>&);
+    UniquePtr& operator=(const UniquePtr<T>&) = delete;
     T operator*();
     T* operator->();
     operator bool();
