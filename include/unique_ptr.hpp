@@ -10,12 +10,6 @@ UniquePtr<T>::UniquePtr()
 {
 }
 
-// template <typename T>
-// UniquePtr<T>::UniquePtr(const UniquePtr<T>&)
-// {
-//     throw std::logic_error("Compile error!");
-// }
-
 template <typename T>
 UniquePtr<T>::~UniquePtr()
 {
@@ -59,12 +53,6 @@ A* make_unique(A _N)
     ptr = new A { _N };
     return ptr;
 }
-
-// template <typename T>
-// UniquePtr<T>& UniquePtr<T>::operator=(const UniquePtr<T>&)
-// {
-//     throw std::logic_error("Compile error!");
-// }
 
 template <typename T>
 T UniquePtr<T>::operator*()
